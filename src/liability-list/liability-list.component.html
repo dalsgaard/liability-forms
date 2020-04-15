@@ -1,0 +1,30 @@
+<section class="liability-list">
+  <section class="list">
+    <div ng-repeat="text in $ctrl.texts">
+      <h2>{{ text.title }}</h2>
+      <p ng-hide="text.hasRead">{{ text.body }}</p>
+      <button ng-click="$ctrl.read(text)">
+        {{ text.hasRead ? 'Reread' : 'Read' }}
+      </button>
+    </div>
+  </section>
+  <section class="actions">
+    <button ng-click="$ctrl.readAll()">
+      {{ $ctrl.allRead() ? 'Reread all' : 'All read' }}
+    </button>
+  </section>
+  <section class="signature">
+    <div style="overflow: hidden;">{{ $ctrl.signature }}</div>
+    <img
+      ng-hide="!$ctrl.signature"
+      ng-src="{{ $ctrl.signature }}"
+      height="100"
+    />
+  </section>
+  <section class="actions">
+    <button ng-click="$ctrl.sign()" ng-disabled="!$ctrl.complete()">
+      Sign
+    </button>
+  </section>
+  <signature-area signature="$ctrl.signature"></signature-area>
+</section>

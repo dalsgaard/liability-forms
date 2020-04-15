@@ -1,0 +1,26 @@
+.signature-area {
+  canvas {
+    background-color: #eee;
+  }
+
+  .clear {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+  }
+}
+
+@media (orientation: landscape) {
+  .signature-area {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@media (orientation: portrait) {
+  .signature-area {
+    display: none;
+  }
+}

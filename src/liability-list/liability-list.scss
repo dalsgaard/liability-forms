@@ -14,4 +14,11 @@
   button {
     background-color: lightgray;
   }
+
+  input[type='text'] {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 4px;
+    width: 80%;
+  }
 }

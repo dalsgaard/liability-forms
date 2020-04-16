@@ -14,12 +14,12 @@
     </button>
   </section>
   <section class="signature">
-    <div style="overflow: hidden;">{{ $ctrl.signature }}</div>
     <img
       ng-hide="!$ctrl.signature"
       ng-src="{{ $ctrl.signature }}"
       height="100"
     />
+    <input type="text" placeholder="Name" ng-model="$ctrl.name" />
   </section>
   <section class="actions">
     <button ng-click="$ctrl.sign()" ng-disabled="!$ctrl.complete()">

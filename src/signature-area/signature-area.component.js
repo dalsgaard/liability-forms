@@ -7,7 +7,7 @@ function getPoint(e) {
   return [touch.clientX, touch.clientY];
 }
 
-function controller($element, $scope, $window, $q) {
+function controller($element, $scope, $window) {
   if ($window.orientation % 180) {
     this.width = $window.innerWidth;
     this.height = $window.innerHeight;
@@ -24,7 +24,6 @@ function controller($element, $scope, $window, $q) {
     this.drawn = false;
     this.drawing = false;
     el.bind('touchstart', (e) => {
-      console.log(e);
       const [x, y] = getPoint(e);
       this.ctx.beginPath();
       this.ctx.moveTo(x, y);

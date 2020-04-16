@@ -4,16 +4,14 @@ const blobStream = require('blob-stream');
 const template = require('./liability-list.component.html');
 require('./liability-list.scss');
 
-console.log(PDFDocument);
-
 const texts = require('./liability-texts.json');
 
 function controller() {
   this.texts = texts;
   this.signature = null;
+  this.name = null;
 
   this.read = (text) => {
-    console.log(text.title);
     text.hasRead = !text.hasRead;
   };
 
@@ -27,8 +25,7 @@ function controller() {
   };
 
   this.complete = () => {
-    console.log(this.allRead());
-    return !!(this.allRead() && this.signature);
+    return !!(this.allRead() && this.signature && this.name);
   };
 
   this.sign = () => {
@@ -49,7 +46,7 @@ function controller() {
         .moveDown();
     });
 
-    doc.image(this.signature, { height: 100 });
+    doc.image(this.signature, { height: 100 }).moveDown().text(this.name);
     doc.end();
 
     stream.on('finish', () => {

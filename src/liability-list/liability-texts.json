@@ -1,14 +1,15 @@
 [
   {
-    "title": "Lorem ipsum dolor sit amet",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque congue porta eros. Nunc imperdiet finibus vestibulum. Quisque blandit id augue sit amet accumsan. Praesent luctus felis nisi, vel viverra metus consequat ac. Nulla molestie dolor eu ante elementum posuere. Aliquam ante libero, tincidunt id felis at, porttitor consectetur enim. Ut eu urna eget arcu accumsan semper. Phasellus in enim fringilla, egestas nibh a, vulputate tortor. Praesent nec sem eget nunc feugiat dapibus. Nunc urna ante, suscipit vitae sem sit amet, rhoncus blandit mi. Maecenas gravida nisl eget justo blandit congue. Nam ullamcorper arcu velit, vitae maximus metus pellentesque non. Aenean eu dui enim. Quisque sit amet rutrum urna. Quisque eu velit ut purus aliquam rutrum. Mauris hendrerit nunc efficitur enim maximus fringilla."
+    "title": "Kvittens",
+    "body": [
+      "Jag intygar härmed att jag mottagit vägassistans från SOS International."
+    ]
   },
   {
-    "title": "Vestibulum a quam non ante congue ultrices non at odio",
-    "body": "Vestibulum a quam non ante congue ultrices non at odio. In hac habitasse platea dictumst. Quisque quis dui quis leo tempor viverra aliquet ac nisi. Ut dictum sem erat, quis dapibus nulla feugiat non. Cras quis dui ullamcorper, sagittis dolor quis, luctus libero. Nulla non tortor ac nunc hendrerit pretium a vel nunc. Fusce molestie nec est aliquet pretium. Quisque pharetra commodo lorem, sed ullamcorper dui. Praesent eget ligula efficitur enim efficitur tincidunt vel sed metus. Curabitur eget egestas mauris, aliquet ullamcorper felis. Duis ultricies vehicula libero ac ultricies. Donec ultrices libero quis sodales congue. Donec aliquet volutpat vulputate. Maecenas luctus turpis ac interdum euismod. Fusce dignissim rhoncus diam sit amet dignissim. Mauris volutpat, ligula ut blandit pellentesque, massa est tempor velit, sit amet pellentesque velit velit in leo."
-  },
-  {
-    "title": "Duis fermentum cursus eros",
-    "body": "Duis fermentum cursus eros, vel congue nunc aliquet ac. Quisque sodales tempus volutpat. Praesent pretium mauris in metus convallis vestibulum. Nullam sit amet pharetra lacus. Mauris non sapien mauris. Ut ac consectetur dui. Nullam nec est nunc. Proin euismod semper sollicitudin."
+    "title": "Pluggning",
+    "body": [
+      "SOS International meddelar att vi med dagens datum har lagat ditt däck med en tillfällig lagning. Den tillfälliga lagningen förutsätter att du kör direkt från skadeplatsen till verkstaden för att låta dem granska däcket. Verkstaden ska granska och permanent laga däcket eller byta det enligt tillverkarens instruktioner.",
+      "Viktigt! Innan granskningen och reparationen har gjorts på verkstaden får man köra högst 80 km/h och en sträcka på 80 km. "
+    ]
   }
 ]

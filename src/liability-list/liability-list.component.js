@@ -37,15 +37,13 @@ function controller() {
     const stream = doc.pipe(blobStream());
 
     this.texts.forEach((text) => {
-      doc
-        .fontSize(20)
-        .text(text.title)
-        .fontSize(12)
-        .moveDown()
-        .text(text.body)
-        .moveDown();
+      doc.fontSize(18).text(text.title);
+      doc.fontSize(12);
+      text.body.forEach((p) => {
+        doc.moveDown().text(p);
+      });
+      doc.moveDown().moveDown();
     });
-
     doc.image(this.signature, { height: 100 }).moveDown().text(this.name);
     doc.end();
 

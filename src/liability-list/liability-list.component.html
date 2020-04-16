@@ -2,7 +2,9 @@
   <section class="list">
     <div ng-repeat="text in $ctrl.texts">
       <h2>{{ text.title }}</h2>
-      <p ng-hide="text.hasRead">{{ text.body }}</p>
+      <div class="body" ng-hide="text.hasRead">
+        <p ng-repeat="p in text.body">{{ p }}</p>
+      </div>
       <button ng-click="$ctrl.read(text)">
         {{ text.hasRead ? 'Reread' : 'Read' }}
       </button>

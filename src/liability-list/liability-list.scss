@@ -4,21 +4,22 @@
   }
 
   .signature {
-    margin: 12px;
+    margin: 0 12px;
   }
 
   .actions {
-    padding: 12px;
+    padding: 0 12px;
   }
 
-  button {
-    background-color: lightgray;
+  md-input-container {
+    box-sizing: border-box;
+    margin-bottom: 0;
+    width: 100%;
   }
 
-  input[type='text'] {
-    border: none;
-    border-bottom: 1px solid black;
-    padding: 4px;
-    width: 80%;
+  .md-fab {
+    bottom: 12px;
+    position: fixed;
+    right: 12px;
   }
 }

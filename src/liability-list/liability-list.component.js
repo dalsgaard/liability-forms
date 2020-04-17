@@ -6,17 +6,26 @@ require('./liability-list.scss');
 
 const texts = require('./liability-texts.json');
 
-function controller() {
+function controller($mdDialog) {
   this.texts = texts;
   this.signature = null;
   this.name = null;
+
+  this.texts.forEach((text) => {
+    text.active = text.mandatory || text.initial;
+  });
+
+  this.findActiveTexts = () => {
+    this.activeTexts = this.texts.filter((text) => text.active);
+  };
 
   this.read = (text) => {
     text.hasRead = !text.hasRead;
   };
 
   this.allRead = () => {
-    return !this.texts.find((text) => !text.hasRead);
+    //return !this.texts.find((text) => !text.hasRead);
+    return true;
   };
 
   this.readAll = () => {
@@ -53,11 +62,31 @@ function controller() {
     });
   };
 
+  this.hideDialog = () => {
+    $mdDialog.hide();
+  };
+
+  this.add = (e) => {
+    $mdDialog
+      .show({
+        contentElement: '#textsDialog',
+        parent: angular.element(document.body),
+        targetEvent: e,
+        clickOutsideToClose: true,
+      })
+      .then(
+        () => this.findActiveTexts(),
+        () => this.findActiveTexts()
+      );
+  };
+
   this.sendPdf = (pdf) => {
     const reader = new FileReader();
     reader.onload = (e) => console.log(e.target.result);
     reader.readAsDataURL(pdf);
   };
+
+  this.findActiveTexts();
 }
 
 angular.module('demoApp').component('liabilityList', {

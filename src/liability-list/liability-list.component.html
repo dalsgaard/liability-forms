@@ -1,32 +1,65 @@
 <section class="liability-list">
   <section class="list">
-    <div ng-repeat="text in $ctrl.texts">
+    <div ng-repeat="text in $ctrl.activeTexts">
       <h2>{{ text.title }}</h2>
       <div class="body" ng-hide="text.hasRead">
         <p ng-repeat="p in text.body">{{ p }}</p>
       </div>
-      <button ng-click="$ctrl.read(text)">
+      <!--button ng-click="$ctrl.read(text)">
         {{ text.hasRead ? 'Reread' : 'Read' }}
-      </button>
+      </button-->
     </div>
   </section>
-  <section class="actions">
+  <!--section class="actions">
     <button ng-click="$ctrl.readAll()">
       {{ $ctrl.allRead() ? 'Reread all' : 'All read' }}
     </button>
-  </section>
+  </section-->
   <section class="signature">
-    <img
-      ng-hide="!$ctrl.signature"
-      ng-src="{{ $ctrl.signature }}"
-      height="100"
-    />
-    <input type="text" placeholder="Name" ng-model="$ctrl.name" />
+    <div>
+      <img
+        ng-hide="!$ctrl.signature"
+        ng-src="{{ $ctrl.signature }}"
+        height="100"
+      />
+    </div>
+    <md-input-container>
+      <input type="text" placeholder="Name" ng-model="$ctrl.name" />
+    </md-input-container>
   </section>
   <section class="actions">
-    <button ng-click="$ctrl.sign()" ng-disabled="!$ctrl.complete()">
+    <md-button
+      class="md-raised md-primary"
+      ng-click="$ctrl.sign()"
+      ng-disabled="!$ctrl.complete()"
+    >
       Sign
-    </button>
+    </md-button>
   </section>
   <signature-area signature="$ctrl.signature"></signature-area>
+  <md-button class="md-fab md-mini" ng-click="$ctrl.add($event)">
+    <md-icon>add</md-icon>
+  </md-button>
+  <div style="visibility: hidden;">
+    <div class="md-dialog-container" id="textsDialog">
+      <md-dialog layout-padding>
+        <h2>Texts</h2>
+        <md-list>
+          <md-list-item ng-repeat="text in $ctrl.texts">
+            <p>{{ text.title }}</p>
+            <md-checkbox
+              class="md-secondary"
+              ng-disabled="text.mandatory"
+              ng-model="text.active"
+            ></md-checkbox>
+          </md-list-item>
+        </md-list>
+        <md-dialog-actions layout="row">
+          <md-button ng-click="$ctrl.hideDialog()">
+            Close
+          </md-button>
+        </md-dialog-actions>
+      </md-dialog>
+    </div>
+  </div>
 </section>

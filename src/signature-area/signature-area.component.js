@@ -20,32 +20,42 @@ function controller($element, $scope, $window) {
     const el = $element.find('canvas');
     this.canvas = el[0];
     this.ctx = this.canvas.getContext('2d');
+    const color = '#00b';
 
     this.drawn = false;
-    this.drawing = false;
+    let drawing = false;
+    let dot = false;
+    let start = [];
     el.bind('touchstart', (e) => {
-      const [x, y] = getPoint(e);
+      start = getPoint(e);
       this.ctx.beginPath();
-      this.ctx.moveTo(x, y);
-      this.drawing = true;
+      this.ctx.moveTo(...start);
+      drawing = true;
+      dot = true;
       e.preventDefault();
     });
     el.bind('touchmove', (e) => {
-      if (this.drawing) {
+      if (drawing) {
         this.drawn = true;
+        dot = false;
         const [x, y] = getPoint(e);
         this.ctx.lineTo(x, y);
-        this.ctx.strokeStyle = '#00b';
+        this.ctx.strokeStyle = color;
         this.ctx.stroke();
       }
       e.preventDefault();
     });
     el.bind('touchend', (e) => {
-      this.drawing = false;
+      drawing = false;
+      if (dot) {
+        this.ctx.fillStyle = color;
+        this.ctx.arc(...start, 2, 0, Math.PI * 2);
+        this.ctx.fill();
+      }
       e.preventDefault();
     });
     el.bind('touchcancel', (e) => {
-      this.drawing = false;
+      drawing = false;
       e.preventDefault();
     });
 

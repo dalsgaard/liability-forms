@@ -3,7 +3,8 @@
     "title": "Kvittens",
     "body": [
       "Jag intygar härmed att jag mottagit vägassistans från SOS International."
-    ]
+    ],
+    "mandatory": true
   },
   {
     "title": "Pluggning",

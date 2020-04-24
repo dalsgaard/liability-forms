@@ -10,10 +10,15 @@ function controller($mdDialog) {
   this.texts = texts;
   this.signature = null;
   this.name = null;
+  this.signatureOpen = false;
 
   this.texts.forEach((text) => {
     text.active = text.mandatory || text.initial;
   });
+
+  this.openSignature = () => {
+    this.signatureOpen = true;
+  };
 
   this.findActiveTexts = () => {
     this.activeTexts = this.texts.filter((text) => text.active);
@@ -45,7 +50,7 @@ function controller($mdDialog) {
     const doc = new PDFDocument();
     const stream = doc.pipe(blobStream());
 
-    this.texts.forEach((text) => {
+    this.activeTexts.forEach((text) => {
       doc.fontSize(18).text(text.title);
       doc.fontSize(12);
       text.body.forEach((p) => {

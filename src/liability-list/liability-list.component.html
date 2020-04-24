@@ -28,15 +28,21 @@
     </md-input-container>
   </section>
   <section class="actions">
+    <md-button class="md-raised" ng-click="$ctrl.openSignature()">
+      Signature
+    </md-button>
     <md-button
       class="md-raised md-primary"
       ng-click="$ctrl.sign()"
       ng-disabled="!$ctrl.complete()"
     >
-      Sign
+      Submit
     </md-button>
   </section>
-  <signature-area signature="$ctrl.signature"></signature-area>
+  <signature-area
+    open="$ctrl.signatureOpen"
+    signature="$ctrl.signature"
+  ></signature-area>
   <md-button class="md-fab md-mini" ng-click="$ctrl.add($event)">
     <md-icon>add</md-icon>
   </md-button>

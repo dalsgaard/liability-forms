@@ -8,13 +8,8 @@ function getPoint(e) {
 }
 
 function controller($element, $scope, $window) {
-  if ($window.orientation % 180) {
-    this.width = $window.innerWidth;
-    this.height = $window.innerHeight;
-  } else {
-    this.height = $window.innerWidth;
-    this.width = $window.innerHeight;
-  }
+  this.width = $window.innerWidth;
+  this.height = $window.innerHeight;
 
   this.$onInit = () => {
     const el = $element.find('canvas');
@@ -58,15 +53,17 @@ function controller($element, $scope, $window) {
       drawing = false;
       e.preventDefault();
     });
-
-    $window.addEventListener('orientationchange', (e) => {
-      this.createSignature();
-    });
   };
 
   this.createSignature = () => {
     if (this.drawn) {
-      this.canvas.toBlob((blob) => {
+      const canvas = document.createElement('canvas');
+      canvas.width = this.canvas.height;
+      canvas.height = this.canvas.width;
+      const ctx = canvas.getContext('2d');
+      ctx.rotate((90 * Math.PI) / 180);
+      ctx.drawImage(this.canvas, 0, -canvas.width);
+      canvas.toBlob((blob) => {
         const reader = new FileReader();
         reader.addEventListener('load', () => {
           this.signature = reader.result;
@@ -82,12 +79,18 @@ function controller($element, $scope, $window) {
     this.drawn = false;
     this.signature = null;
   };
+
+  this.back = () => {
+    this.createSignature();
+    this.open = false;
+  };
 }
 
 angular.module('demoApp').component('signatureArea', {
   template,
   bindings: {
     signature: '=',
+    open: '=',
   },
   controller,
 });

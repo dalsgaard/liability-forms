@@ -1,4 +1,5 @@
-<section class="signature-area">
-  <canvas height="{{$ctrl.height}}" width="{{$ctrl.width}}"></canvas>
+<section class="signature-area" ng-class="{ open: $ctrl.open }">
+  <canvas height="{{ $ctrl.height }}" width="{{ $ctrl.width }}"></canvas>
   <button class="clear" ng-click="$ctrl.clear()">Clear</button>
+  <button class="back" ng-click="$ctrl.back()">Back</button>
 </section>

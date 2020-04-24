@@ -9,14 +9,18 @@ signature-area {
 
   .clear {
     position: fixed;
-    top: 12px;
-    right: 12px;
+    top: 6px;
+    left: 0px;
   }
 
   .back {
     position: fixed;
-    top: 12px;
-    left: 12px;
+    bottom: 6px;
+    left: 0px;
+  }
+
+  i.material-icons {
+    transform: rotate(-90deg);
   }
 }
 

@@ -1,5 +1,9 @@
 <section class="signature-area" ng-class="{ open: $ctrl.open }">
   <canvas height="{{ $ctrl.height }}" width="{{ $ctrl.width }}"></canvas>
-  <button class="clear" ng-click="$ctrl.clear()">Clear</button>
-  <button class="back" ng-click="$ctrl.back()">Back</button>
+  <md-button class="back md-icon-button" ng-click="$ctrl.back()">
+    <i class="material-icons ng-scope">arrow_back</i>
+  </md-button>
+  <md-button class="clear md-icon-button" ng-click="$ctrl.clear()">
+    <i class="material-icons ng-scope">delete_outline</i>
+  </md-button>
 </section>

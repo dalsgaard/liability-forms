@@ -33,7 +33,7 @@
     </md-button>
     <md-button
       class="md-raised md-primary"
-      ng-click="$ctrl.sign()"
+      ng-click="$ctrl.submit()"
       ng-disabled="!$ctrl.complete()"
     >
       Submit
@@ -43,7 +43,7 @@
     open="$ctrl.signatureOpen"
     signature="$ctrl.signature"
   ></signature-area>
-  <md-button class="md-fab md-mini" ng-click="$ctrl.add($event)">
+  <md-button class="md-fab md-mini" ng-click="$ctrl.addText($event)">
     <md-icon>add</md-icon>
   </md-button>
   <div style="visibility: hidden;">

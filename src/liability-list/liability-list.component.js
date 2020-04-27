@@ -42,7 +42,7 @@ function controller($mdDialog) {
     return !!(this.allRead() && this.signature && this.name);
   };
 
-  this.sign = () => {
+  this.submit = () => {
     this.createPdf();
   };
 
@@ -71,7 +71,7 @@ function controller($mdDialog) {
     $mdDialog.hide();
   };
 
-  this.add = (e) => {
+  this.addText = (e) => {
     $mdDialog
       .show({
         contentElement: '#textsDialog',
@@ -87,7 +87,7 @@ function controller($mdDialog) {
 
   this.sendPdf = (pdf) => {
     const reader = new FileReader();
-    reader.onload = (e) => console.log(e.target.result);
+    reader.onload = (e) => console.log(e.target.result); // TODO: Send to image queue
     reader.readAsDataURL(pdf);
   };
 
